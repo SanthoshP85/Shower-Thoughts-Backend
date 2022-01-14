@@ -32,7 +32,7 @@ app.get('/file', function(req, res) {
 dotenv.config();
 
 mongoose.connect(
-  process.env.MONGODB_URI||'mongodb+srv://Santhosh:Santhosh@cluster0.o2rbp.mongodb.net/social?retryWrites=true&w=majority',
+  process.env.MONGODB_URI||process.env.MONGO_URL,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to MongoDB");
