@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const cors = require('cors');
 
 //update user
-router.put("/:id", async (req, res) => {
+router.put("/:id",cors(), async (req, res) => {
   if (req.body.userId === req.params.id || req.body.isAdmin) {
     if (req.body.password) {
       try {
@@ -76,7 +76,7 @@ router.get("/friends/:userId", async (req, res) => {
   }
 });
 
-router.put("/:id/follow", async (req, res) => {
+router.put("/:id/follow",cors(), async (req, res) => {
   if (req.body.userId !== req.params.id) {
     try {
       const user = await User.findById(req.params.id);
@@ -98,7 +98,7 @@ router.put("/:id/follow", async (req, res) => {
 
 //unfollow a user
 
-router.put("/:id/unfollow", async (req, res) => {
+router.put("/:id/unfollow",cors(), async (req, res) => {
   if (req.body.userId !== req.params.id) {
     try {
       const user = await User.findById(req.params.id);

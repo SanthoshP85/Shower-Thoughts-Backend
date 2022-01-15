@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const Post = require("../models/Post");
 const User = require("../models/User");
-
+const cors = require('cors');
 //create a post
 
 router.post("/", async (req, res) => {
@@ -15,7 +15,7 @@ router.post("/", async (req, res) => {
 });
 //update a post
 
-router.put("/:id", async (req, res) => {
+router.put("/:id",cors(), async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     
@@ -29,7 +29,7 @@ router.put("/:id", async (req, res) => {
 });
 //delete a post
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",cors(), async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     await post.deleteOne();
@@ -41,7 +41,7 @@ router.delete("/:id", async (req, res) => {
 });
 //like / dislike a post
 
-router.put("/:id/like", async (req, res) => {
+router.put("/:id/like",cors(),async (req, res) => {
   try {
     const post = await Post.findById(req.params.id);
     if (!post.likes.includes(req.body.userId)) {
