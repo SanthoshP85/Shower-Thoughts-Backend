@@ -12,8 +12,8 @@ const router = express.Router();
 const path = require("path");
 const Post = require("./models/Post");
 const bodyParser= require('body-parser');
-
-
+const cors = require('cors');
+app.use(cors());
 
 
 dotenv.config();

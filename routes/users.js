@@ -1,6 +1,7 @@
 const User = require("../models/User");
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
+const cors = require('cors');
 
 //update user
 router.put("/:id", async (req, res) => {
@@ -27,7 +28,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //delete user
-router.delete("/:id", async (req, res) => {
+router.delete("/:id",cors(), async (req, res) => {
   if (req.body.userId === req.params.id || req.body.isAdmin) {
     try {
       await User.findByIdAndDelete(req.params.id);
