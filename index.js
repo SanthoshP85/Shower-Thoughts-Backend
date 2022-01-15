@@ -14,19 +14,6 @@ const Post = require("./models/Post");
 const bodyParser= require('body-parser');
 
 
-app.get('/json', function(req, res) {
-  console.log("GET the json");
-  res
-      .status(200)
-      .json( {"jsonData" : true} );
-});
-
-app.get('/file', function(req, res) {
-  console.log("GET the file");
-  res
-      .status(200)
-      .sendFile(path.join(__dirname, 'index.js'));
-});
 
 
 dotenv.config();
