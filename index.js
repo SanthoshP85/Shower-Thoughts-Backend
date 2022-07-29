@@ -60,7 +60,7 @@ app.use("/api/posts", postRoute);
 // //Configuration
 // app.use(bodyParser.json());
 
-//commit
+//commitnew
 
 
 app.listen(process.env.PORT || 8800,() => {
